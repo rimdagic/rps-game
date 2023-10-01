@@ -1,9 +1,6 @@
 package org.example;
 
-import org.example.Menu.ChooseOpponent;
-import org.example.Menu.Menu;
-import org.example.Menu.PlayerName;
-import org.example.Menu.StartGame;
+import org.example.Menu.*;
 import org.example.Opponents.Opponent;
 import org.example.Opponents.Slumpis;
 import org.example.Results.GameResult;
@@ -32,11 +29,13 @@ public class Game {
         menu.addMenuItem(new PlayerName(player));
         menu.addMenuItem(new ChooseOpponent(opponent, player));
         menu.addMenuItem(new StartGame(game));
+        menu.addMenuItem(new GameStatistics(gameResultList));
 
         menu.run();
 
         System.out.println(player.getName());
         System.out.println(opponent.getName());
+        System.out.println(gameResultList);
 
     }
 
@@ -53,8 +52,6 @@ public class Game {
 
             System.out.println(decideWinner(playerMove, opponentMove));
 
-            List<RoundResult> clonedRoundResultList = Utils.cloneList(currentRoundResultList);
-
             currentRoundResultList.add(
                     new RoundResult(
                             player.getName(),
@@ -64,12 +61,17 @@ public class Game {
                             decideWinner(playerMove, opponentMove)
                     ));
 
-            currentRoundResultList.clear();
-
             numberOfRoundsCount--;
         }
 
+        List<RoundResult> clonedRoundResultList = Utils.cloneList(currentRoundResultList);
+        currentRoundResultList.clear();
+
+        gameResultList.add( new GameResult(initialNumberOfRounds, clonedRoundResultList, Result.PLAYER_WIN, opponent.getName()));
+
     }
+
+
 
     private Result decideWinner(Move playerMove, Move opponentMove){
         if (playerMove == Move.ROCK){

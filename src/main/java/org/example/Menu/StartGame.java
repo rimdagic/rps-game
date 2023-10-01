@@ -1,11 +1,6 @@
 package org.example.Menu;
 
 import org.example.Game;
-import org.example.Move;
-import org.example.Opponents.Opponent;
-import org.example.Player;
-
-import java.util.List;
 import java.util.Scanner;
 
 public class StartGame implements MenuItem{

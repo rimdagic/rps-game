@@ -20,4 +20,15 @@ public class RoundResult {
 
         this.roundResult = roundResult;
     }
+
+    @Override
+    public String toString() {
+        return "RoundResult{" +
+                "playerName='" + playerName + '\'' +
+                ", playerMove=" + playerMove +
+                ", computerName='" + computerName + '\'' +
+                ", computerMove=" + computerMove +
+                ", roundResult=" + roundResult +
+                '}';
+    }
 }
