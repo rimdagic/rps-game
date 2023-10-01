@@ -11,6 +11,7 @@ public class GameResult {
     private Result gameResult;
 
     private String opponentName;
+    private String playerName;
 
     public GameResult(int numberOfRounds, List<RoundResult> roundList, Result gameResult, String opponentName) {
         this.numberOfRounds = numberOfRounds;
@@ -50,5 +51,9 @@ public class GameResult {
 
     public int getOpponentScore() {
         return opponentScore;
+    }
+
+    public String getPlayerName() {
+        return playerName;
     }
 }

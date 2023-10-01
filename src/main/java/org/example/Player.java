@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Player {
 
     private String name;
-    int score;
+    private int score;
 
     public Move chooseMove() {
         System.out.println("Choose your move (1. ROCK, 2. PAPER, 3. SCISSORS)");
@@ -33,6 +33,10 @@ public class Player {
     }
     public String getName(){
         return this.name;
+    }
+
+    public void clearScore(){
+        score = 0;
     }
 
 }

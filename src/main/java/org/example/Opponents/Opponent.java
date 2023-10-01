@@ -13,4 +13,17 @@ public class Opponent {
     public String getName(){
         return behaviour.getName();
     }
+
+    public int getScore() {
+        return behaviour.getScore();
+    }
+
+    public void clearScore(){
+        behaviour.clearScore();
+    }
+
+    public void addScore(){
+        behaviour.addScore();
+    }
+
 }

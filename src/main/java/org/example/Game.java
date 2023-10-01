@@ -23,8 +23,6 @@ public class Game {
     public void start(Game game){
         System.out.println("Player : " + player.getName() + "\t Computer : " + opponent.getName());
 
-
-
         Menu menu = new Menu();
         menu.addMenuItem(new PlayerName(player));
         menu.addMenuItem(new ChooseOpponent(opponent, player));
@@ -36,10 +34,13 @@ public class Game {
         System.out.println(player.getName());
         System.out.println(opponent.getName());
         System.out.println(gameResultList);
-
     }
 
     public void play(){
+
+        player.clearScore();
+        opponent.clearScore();
+
 
         System.out.println("Number of rounds: ");
         int initialNumberOfRounds = scanner.nextInt();
@@ -48,9 +49,8 @@ public class Game {
         while(numberOfRoundsCount > 0){
             Move playerMove = player.chooseMove();
             Move opponentMove = opponent.behaviour.chooseMove();
-            System.out.println(player.getName() + " : " + playerMove + "\t" + opponent.getName()+ " : " + opponentMove);
 
-            System.out.println(decideWinner(playerMove, opponentMove));
+            System.out.println(player.getName() + " : " + playerMove + "\t" + opponent.getName()+ " : " + opponentMove);
 
             currentRoundResultList.add(
                     new RoundResult(
@@ -58,40 +58,66 @@ public class Game {
                             playerMove,
                             opponent.getName(),
                             opponentMove,
-                            decideWinner(playerMove, opponentMove)
+                            decideRoundWinner(playerMove, opponentMove)
                     ));
 
             numberOfRoundsCount--;
         }
 
+        System.out.println("OPPONENT _____ " + opponent.getScore());
+        System.out.println("HUMAAAN----- " + player.getScore());
+
+        Result gameWinner = decideGameWinner(player.getScore(), opponent.getScore());
+
         List<RoundResult> clonedRoundResultList = Utils.cloneList(currentRoundResultList);
         currentRoundResultList.clear();
 
-        gameResultList.add( new GameResult(initialNumberOfRounds, clonedRoundResultList, Result.PLAYER_WIN, opponent.getName()));
-
+        gameResultList.add(
+                new GameResult(
+                        initialNumberOfRounds,
+                        clonedRoundResultList,
+                        gameWinner,
+                        opponent.getName()));
     }
 
 
 
-    private Result decideWinner(Move playerMove, Move opponentMove){
+    private Result decideRoundWinner(Move playerMove, Move opponentMove){
         if (playerMove == Move.ROCK){
             if (opponentMove == Move.PAPER){
+                opponent.addScore();
                 return Result.COMPUTER_WIN;
             } else if (opponentMove == Move.SCISSORS) {
+                player.addScore();
                 return Result.PLAYER_WIN;
             }
         } else if (playerMove == Move.PAPER) {
             if (opponentMove == Move.ROCK){
+                player.addScore();
                 return Result.PLAYER_WIN;
             } else if (opponentMove == Move.SCISSORS){
+                opponent.addScore();
                 return Result.COMPUTER_WIN;
             }
         } else if (playerMove == Move.SCISSORS) {
             if (opponentMove == Move.ROCK) {
+                opponent.addScore();
                 return Result.COMPUTER_WIN;
             } else if (opponentMove == Move.PAPER) {
+                player.addScore();
                 return Result.PLAYER_WIN;
             }
+        }
+        return Result.DRAW;
+    }
+
+    private Result decideGameWinner(int playerScore, int opponentScore){
+        int scoreOffset = playerScore - opponentScore;
+        System.out.println(scoreOffset);
+        if(scoreOffset > 0){
+            return Result.PLAYER_WIN;
+        } else if (scoreOffset < 0 ) {
+            return Result.COMPUTER_WIN;
         }
         return Result.DRAW;
     }
