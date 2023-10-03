@@ -25,13 +25,13 @@ public class ChooseOpponent implements MenuItem {
 
         switch (answer){
             case 1:
-                opponent.setBehaviour(new Slumpis());
+                opponent.setOpponent(new Slumpis(), "Slumpis");
                 break;
             case 2:
-                opponent.setBehaviour(new Klockis());
+                opponent.setOpponent(new Klockis(), "Klockis");
                 break;
             case 3:
-                opponent.setBehaviour(new Namnis(player));
+                opponent.setOpponent(new Namnis(player), "Namnis");
                 break;
         }
 

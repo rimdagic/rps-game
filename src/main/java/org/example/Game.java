@@ -19,7 +19,6 @@ public class Game {
     public List<GameResult> gameResultList = new ArrayList<>();
     List<RoundResult> currentRoundResultList = new ArrayList<>();
 
-
     public void start(Game game){
         System.out.println("Player : " + player.getName() + "\t Computer : " + opponent.getName());
 
@@ -30,20 +29,6 @@ public class Game {
         menu.addMenuItem(new GameStatistics(gameResultList));
 
         menu.run();
-
-
-/*
-
-        menuSystem = new MenuSystem(new MainMenu());
-
-
-        while (true) {
-            menuSystem.execute();
-        }
-
-
-
-*/
     }
 
     public void play(){
@@ -57,7 +42,7 @@ public class Game {
 
         while(numberOfRoundsCount > 0){
             Move playerMove = player.chooseMove();
-            Move opponentMove = opponent.behaviour.chooseMove();
+            Move opponentMove = opponent.chooseMove();
 
             System.out.println(player.getName() + " : " + playerMove + "\t" + opponent.getName()+ " : " + opponentMove);
 
@@ -73,10 +58,11 @@ public class Game {
             numberOfRoundsCount--;
         }
 
-        System.out.println("OPPONENT _____ " + opponent.getScore());
-        System.out.println("HUMAAAN----- " + player.getScore());
+        System.out.println("\n" + opponent.getName() + ": " + opponent.getScore());
+        System.out.println(player.getName() + ": " + player.getScore() + "\n");
 
         Result gameWinner = decideGameWinner(player.getScore(), opponent.getScore());
+        printResult(gameWinner);
 
         List<RoundResult> clonedRoundResultList = Utils.cloneList(currentRoundResultList);
         currentRoundResultList.clear();
@@ -98,28 +84,35 @@ public class Game {
         if (playerMove == Move.ROCK){
             if (opponentMove == Move.PAPER){
                 opponent.addScore();
+                System.out.println(opponent.getName() +" wins the round \n");
                 return Result.COMPUTER_WIN;
             } else if (opponentMove == Move.SCISSORS) {
                 player.addScore();
+                System.out.println(player.getName() +" wins the round \n");
                 return Result.PLAYER_WIN;
             }
         } else if (playerMove == Move.PAPER) {
             if (opponentMove == Move.ROCK){
                 player.addScore();
+                System.out.println(player.getName() +" wins the round \n");
                 return Result.PLAYER_WIN;
             } else if (opponentMove == Move.SCISSORS){
                 opponent.addScore();
+                System.out.println(opponent.getName() +" wins the round \n");
                 return Result.COMPUTER_WIN;
             }
         } else if (playerMove == Move.SCISSORS) {
             if (opponentMove == Move.ROCK) {
                 opponent.addScore();
+                System.out.println(opponent.getName() +" wins the round \n");
                 return Result.COMPUTER_WIN;
             } else if (opponentMove == Move.PAPER) {
                 player.addScore();
+                System.out.println(player.getName() +" wins the round \n");
                 return Result.PLAYER_WIN;
             }
         }
+        System.out.println("This round is a draw!\n");
         return Result.DRAW;
     }
 
@@ -136,7 +129,12 @@ public class Game {
 
     private void printResult(Result result){
         if(result == Result.PLAYER_WIN){
-            System.out.println(player.getName() + " wins");
+            System.out.println(player.getName() + " wins the game!");
+        } else if (result == Result.COMPUTER_WIN) {
+            System.out.println(opponent.getName() + " wins the game!");
+        } else{
+            System.out.println("It's a draw!");
         }
+        System.out.println("\n");
     }
 }

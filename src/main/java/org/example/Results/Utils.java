@@ -12,6 +12,7 @@ public class Utils {
             RoundResult clonedInstance = instance;
             clonedList.add(clonedInstance);
         }
+
         return clonedList;
     }
 
