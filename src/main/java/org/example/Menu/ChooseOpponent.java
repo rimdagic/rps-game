@@ -8,7 +8,7 @@ import org.example.Player;
 
 import java.util.Scanner;
 
-public class ChooseOpponent implements MenuItem{
+public class ChooseOpponent implements MenuItem {
     Opponent opponent;
     Player player;
     public ChooseOpponent(Opponent opponent, Player player) {

@@ -23,12 +23,6 @@ public class RoundResult {
 
     @Override
     public String toString() {
-        return "RoundResult{" +
-                "playerName='" + playerName + '\'' +
-                ", playerMove=" + playerMove +
-                ", computerName='" + computerName + '\'' +
-                ", computerMove=" + computerMove +
-                ", roundResult=" + roundResult +
-                '}';
+        return playerName + ": "+ playerMove + "\t" + computerName + ": " + computerMove + "\t Winner: " + roundResult + "\n";
     }
 }

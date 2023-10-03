@@ -17,8 +17,8 @@ public class Game {
     public Player player = new Player();
     public Opponent opponent = new Opponent(new Slumpis());
     public List<GameResult> gameResultList = new ArrayList<>();
-
     List<RoundResult> currentRoundResultList = new ArrayList<>();
+
 
     public void start(Game game){
         System.out.println("Player : " + player.getName() + "\t Computer : " + opponent.getName());
@@ -31,16 +31,25 @@ public class Game {
 
         menu.run();
 
-        System.out.println(player.getName());
-        System.out.println(opponent.getName());
-        System.out.println(gameResultList);
+
+/*
+
+        menuSystem = new MenuSystem(new MainMenu());
+
+
+        while (true) {
+            menuSystem.execute();
+        }
+
+
+
+*/
     }
 
     public void play(){
 
         player.clearScore();
         opponent.clearScore();
-
 
         System.out.println("Number of rounds: ");
         int initialNumberOfRounds = scanner.nextInt();
@@ -77,7 +86,10 @@ public class Game {
                         initialNumberOfRounds,
                         clonedRoundResultList,
                         gameWinner,
-                        opponent.getName()));
+                        opponent.getName(),
+                        player.getScore(),
+                        opponent.getScore()
+                ));
     }
 
 

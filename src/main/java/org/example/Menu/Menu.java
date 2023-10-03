@@ -16,7 +16,6 @@ public class Menu {
         for (int i = 0; i < menuItems.size(); i++) {
             System.out.println((i + 1) + ". " + menuItems.get(i).getDisplayChoice());
         }
-
         System.out.println("0. Exit");
     }
 
@@ -34,5 +33,4 @@ public class Menu {
 
         } while (choice != 0);
     }
-
 }

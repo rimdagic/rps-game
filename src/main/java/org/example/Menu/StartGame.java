@@ -3,7 +3,7 @@ package org.example.Menu;
 import org.example.Game;
 import java.util.Scanner;
 
-public class StartGame implements MenuItem{
+public class StartGame implements MenuItem {
     private Game game;
 
     Scanner scanner = new Scanner(System.in);

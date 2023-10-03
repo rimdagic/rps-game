@@ -1,40 +1,32 @@
 package org.example.Results;
 
-import org.example.Opponents.Opponent;
 import java.util.List;
 
 public class GameResult {
     private int numberOfRounds;
-    private int playerScore;
-    private int opponentScore;
     private List<RoundResult> roundList;
     private Result gameResult;
 
-    private String opponentName;
-    private String playerName;
+    private int playerScore;
+    private int opponentScore;
 
-    public GameResult(int numberOfRounds, List<RoundResult> roundList, Result gameResult, String opponentName) {
+    private String opponentName;
+
+    public GameResult(int numberOfRounds, List<RoundResult> roundList, Result gameResult, String opponentName, int playerScore, int opponentScore) {
         this.numberOfRounds = numberOfRounds;
         this.roundList = roundList;
         this.gameResult = gameResult;
         this.opponentName = opponentName;
+        this.playerScore = playerScore;
+        this.opponentScore = opponentScore;
     }
 
     @Override
     public String toString() {
-        return "GameResult{" +
-                "numberOfRounds=" + numberOfRounds +
-                ", roundList=" + roundList +
-                ", gameWinner=" + gameResult +
-                '}';
-    }
-
-    public int getNumberOfRounds() {
-        return numberOfRounds;
-    }
-
-    public List<RoundResult> getRoundList() {
-        return roundList;
+        return "GameResult:\n" +
+                "Number of rounds: " + numberOfRounds +
+                "\nRound details:\n" + roundList +
+                "\nGame Result: " + gameResult + "\t" + "Your score: " + playerScore + "\t" + opponentName + " score: " + opponentScore + "\n";
     }
 
     public Result getGameResult() {
@@ -45,15 +37,7 @@ public class GameResult {
         return opponentName;
     }
 
-    public int getPlayerScore() {
-        return playerScore;
-    }
-
-    public int getOpponentScore() {
-        return opponentScore;
-    }
-
-    public String getPlayerName() {
-        return playerName;
+    public List<RoundResult> getRound(){
+        return roundList;
     }
 }
