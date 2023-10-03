@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class Game {
     Scanner scanner = new Scanner(System.in);
     public Player player = new Player();
-    public Opponent opponent = new Opponent(new Slumpis());
+    public Opponent opponent = new Opponent("Slumpis", new Slumpis());
     public List<GameResult> gameResultList = new ArrayList<>();
     List<RoundResult> currentRoundResultList = new ArrayList<>();
 
