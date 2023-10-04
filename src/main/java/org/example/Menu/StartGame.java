@@ -1,15 +1,10 @@
 package org.example.Menu;
 
 import org.example.Game;
-import org.example.Opponents.Namnis;
-import org.example.Opponents.Slumpis;
-
 import java.util.Scanner;
 
 public class StartGame implements MenuItem {
     private Game game;
-
-    Scanner scanner = new Scanner(System.in);
 
     public StartGame(Game game) {
         this.game = game;

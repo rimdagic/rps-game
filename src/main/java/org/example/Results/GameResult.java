@@ -24,7 +24,8 @@ public class GameResult {
         return "\n-----Game-----\n" +
                 "Number of rounds: " + numberOfRounds +
                 "\nRound details:\n" + roundList +
-                "Game winner: \t" + gameResult + "\t" + "Your score: " + playerScore + "\t" + opponentName + " score: " + opponentScore + "\n--------------\n";
+                "Game winner: \t" + gameResult + "\t" + "Your score: " + playerScore + "\t" + opponentName + " score: " + opponentScore + "\n" +
+                "--------------\n";
     }
 
     public Result getGameResult() {
