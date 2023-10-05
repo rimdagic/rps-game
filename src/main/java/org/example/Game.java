@@ -19,13 +19,13 @@ public class Game {
     public List<GameResult> gameResultList = new ArrayList<>();
     List<RoundResult> currentRoundResultList = new ArrayList<>();
 
-    public void start(Game game){
+    public void start(){
         System.out.println("Player : " + player.getName() + "\t Computer : " + opponent.getName());
 
         Menu menu = new Menu();
         menu.addMenuItem(new PlayerName(player));
         menu.addMenuItem(new ChooseOpponent(opponent, player));
-        menu.addMenuItem(new StartGame(game));
+        menu.addMenuItem(new StartGame(this));
         menu.addMenuItem(new GameStatistics(gameResultList));
 
         menu.run();

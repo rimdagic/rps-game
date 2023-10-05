@@ -7,8 +7,8 @@ public class Opponent {
     private String name = "Namn";
     private int score;
 
-    public BehaviourInterface behaviour;
-    public Opponent(BehaviourInterface behaviour) {
+    private BehaviourInterface behaviour;
+    private Opponent(BehaviourInterface behaviour) {
         this.behaviour = behaviour;
     }
 
@@ -19,10 +19,6 @@ public class Opponent {
 
     public void setOpponent(BehaviourInterface behaviour, String name){
         this.behaviour = behaviour;
-        this.name = name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 
