@@ -3,14 +3,9 @@ package org.example.Opponents;
 import org.example.Move;
 
 public class Opponent {
-
-    private String name = "Namn";
+    private String name;
     private int score;
-
     private BehaviourInterface behaviour;
-    private Opponent(BehaviourInterface behaviour) {
-        this.behaviour = behaviour;
-    }
 
     public Opponent(String name, BehaviourInterface behaviour) {
         this.name = name;

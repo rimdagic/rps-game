@@ -1,7 +1,6 @@
 package org.example.Menu;
 
 import org.example.Game;
-import java.util.Scanner;
 
 public class StartGame implements MenuItem {
     private Game game;
@@ -17,7 +16,9 @@ public class StartGame implements MenuItem {
         } else{
             game.play();
         }
+
     }
+
 
     @Override
     public String getDisplayChoice() {

@@ -6,14 +6,13 @@ public class Klockis implements BehaviourInterface {
 
     @Override
     public Move chooseMove() {
-        Long date = System.currentTimeMillis();
-
-        long lastDigit = date % 10;
+        long milliseconds = System.currentTimeMillis();
+        long lastDigit = milliseconds % 10;
         int index;
 
-        if( lastDigit < 4 ) {
+        if (lastDigit < 4) {
             index = 0;
-        } else if ( lastDigit > 6 ) {
+        } else if (lastDigit > 6) {
             index = 1;
         } else {
             index = 2;
@@ -21,4 +20,5 @@ public class Klockis implements BehaviourInterface {
 
         return Move.values()[index];
     }
+
 }

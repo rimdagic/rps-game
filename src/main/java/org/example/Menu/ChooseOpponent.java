@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class ChooseOpponent implements MenuItem {
     Opponent opponent;
     Player player;
+
     public ChooseOpponent(Opponent opponent, Player player) {
         this.opponent = opponent;
         this.player = player;
@@ -41,4 +42,5 @@ public class ChooseOpponent implements MenuItem {
     public String getDisplayChoice() {
         return "Choose your opponent";
     }
+
 }

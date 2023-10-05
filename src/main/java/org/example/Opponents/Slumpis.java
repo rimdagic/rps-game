@@ -1,6 +1,7 @@
 package org.example.Opponents;
 
 import org.example.Move;
+
 import java.util.Random;
 
 public class Slumpis implements BehaviourInterface {

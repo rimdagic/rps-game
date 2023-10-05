@@ -20,8 +20,6 @@ public class Game {
     List<RoundResult> currentRoundResultList = new ArrayList<>();
 
     public void start(){
-        System.out.println("Player : " + player.getName() + "\t Computer : " + opponent.getName());
-
         Menu menu = new Menu();
         menu.addMenuItem(new PlayerName(player));
         menu.addMenuItem(new ChooseOpponent(opponent, player));
@@ -32,7 +30,6 @@ public class Game {
     }
 
     public void play(){
-
         player.clearScore();
         opponent.clearScore();
 
@@ -118,7 +115,6 @@ public class Game {
 
     private Result decideGameWinner(int playerScore, int opponentScore){
         int scoreOffset = playerScore - opponentScore;
-        System.out.println(scoreOffset);
         if(scoreOffset > 0){
             return Result.PLAYER_WIN;
         } else if (scoreOffset < 0 ) {

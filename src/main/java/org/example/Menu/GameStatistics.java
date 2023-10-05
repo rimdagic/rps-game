@@ -2,6 +2,7 @@ package org.example.Menu;
 
 import org.example.Results.GameResult;
 import org.example.Results.Result;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -38,6 +39,7 @@ public class GameStatistics implements MenuItem {
                 printStatistics("Namnis");
                 break;
         }
+
     }
 
     @Override

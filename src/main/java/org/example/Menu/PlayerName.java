@@ -4,7 +4,6 @@ import org.example.Player;
 import java.util.Scanner;
 
 public class PlayerName implements MenuItem {
-
     private String name = "Player name";
     private Player player;
 
@@ -25,4 +24,5 @@ public class PlayerName implements MenuItem {
     public String getDisplayChoice() {
         return "Player name";
     }
+
 }

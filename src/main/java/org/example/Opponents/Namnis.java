@@ -2,11 +2,11 @@ package org.example.Opponents;
 
 import org.example.Move;
 import org.example.Player;
+
 import java.util.List;
 import java.util.Random;
 
 public class Namnis implements BehaviourInterface {
-
     Player player;
 
     public Namnis(Player player) {
@@ -29,7 +29,7 @@ public class Namnis implements BehaviourInterface {
                 "E", "e"
         );
 
-        if(containsLetterFromList(someVowels) && index == 0){
+        if (containsLetterFromList(someVowels) && index == 0) {
             index = 2;
         } else if (containsLetterFromList(otherVowels) && index == 1) {
             index = 0;
@@ -46,7 +46,9 @@ public class Namnis implements BehaviourInterface {
             if (player.getName().contains(letter)) {
                 isContaining = true;
             }
+
         }
+
         return isContaining;
     }
 

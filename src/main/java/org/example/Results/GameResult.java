@@ -34,7 +34,5 @@ public class GameResult {
     public String getOpponentName() {
         return opponentName;
     }
-    public List<RoundResult> getRound(){
-        return roundList;
-    }
+
 }
